@@ -18,7 +18,7 @@ const Home = () => {
     }, 2000)
   }, [])
 
-  function random(number) {
+  function random(number: number) {
     return Math.floor(Math.random() * number) + 1
   }
 
@@ -117,15 +117,23 @@ const ContentBackground = (props) => {
     </BackgroundStyle>
   )
 }
+type Background = {
+  item?: {
+    transform: string
+    width: number
+    transformAnimation: number
+  }
+}
 
 const BackgroundStyle = styled.div`
-  transform: ${(props) => props.item.transform} scale(0.5);
+  transform: ${(props: Background) => props.item.transform} scale(0.5);
   opacity: 0.2;
-  width: ${(props) => `${props.item.width * 15}px`};
-  animation: ${(props) => rotationBuilder(props.item.transformAnimation)} 50s
-    infinite alternate;
+  width: ${(props: Background) => `${props.item.width * 15}px`};
+  animation: ${(props: Background) =>
+      rotationBuilder(props.item.transformAnimation)}
+    50s infinite alternate;
 `
-function rotationBuilder(transformAnimation) {
+function rotationBuilder(transformAnimation: number) {
   const rotation = keyframes`
     100% {
     transform: ${transformAnimation};
