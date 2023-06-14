@@ -68,12 +68,12 @@ const Home = () => {
                     />
                   </p>
                   <div className="flex gap-2 mt-4">
-                    <button
+                    {/* <button
                       onClick={() => router.push('/memories')}
                       className="bg-transparent border-2 border-white text-white text-lg py-1 px-3 rounded-full"
                     >
                       Recuerdos
-                    </button>
+                    </button> */}
                     <button
                       onClick={() => setView(!view)}
                       className="bg-white py-1 px-3 text-lg rounded-full"
