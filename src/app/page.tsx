@@ -38,9 +38,9 @@ const Home = () => {
       {loading ? (
         <HeartLoader />
       ) : (
-        <div className="w-screen h-screen bg-cover bg-center bg-[url('../assets/fondo.png')]">
+        <div className="w-screen h-screen bg-cover bg-center bg-[url('https://res.cloudinary.com/joeldes/image/upload/v1695327905/assets/IMG-20230830-WA0026_mqshnr.jpg')]">
           {/* bg-[#ff0707be] */}
-          <div className="bg-gradient-to-t from-[#250000bb] to-[#d30000e1] w-screen h-screen">
+          <div className="bg-gradient-to-t from-[#250000bb] to-[#d3cf007a] w-screen h-screen">
             <div className="h-full max-w-lg mx-auto flex justify-center items-center flex-col">
               {!view ? (
                 <>
@@ -53,6 +53,9 @@ const Home = () => {
                   <h1 className="text-white font-satisfy italic font-bold text-4xl mb-6">
                     Joel y Paulett
                   </h1>
+                  <p className="text-center text-lg text-white px-3">
+                    Feliz dia mi amor
+                  </p>
                   <p className="text-center text-lg text-white px-3">
                     Gracias por ser el amor de mi vida y por hacerme sentir
                     completo.
