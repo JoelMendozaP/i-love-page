@@ -1,37 +1,37 @@
-'use client'
-import './page.css'
-import * as React from 'react'
-import ReactHowler from 'react-howler'
-import { FaTimes } from 'react-icons/fa'
-import HeartLoader from './components/animation/HeartLoader'
-import Typewriter from 'typewriter-effect'
-import styled, { keyframes } from 'styled-components'
-import { useRouter } from 'next/navigation'
+"use client";
+import "./page.css";
+import * as React from "react";
+import ReactHowler from "react-howler";
+import { FaTimes } from "react-icons/fa";
+import HeartLoader from "./components/animation/HeartLoader";
+import Typewriter from "typewriter-effect";
+import styled, { keyframes } from "styled-components";
+import { useRouter } from "next/navigation";
 
 const Home = () => {
-  const router = useRouter()
-  const [loading, setLoading] = React.useState<boolean>(true)
-  const [view, setView] = React.useState<boolean>(false)
+  const router = useRouter();
+  const [loading, setLoading] = React.useState<boolean>(true);
+  const [view, setView] = React.useState<boolean>(false);
   React.useEffect(() => {
     setTimeout(() => {
-      setLoading(false)
-    }, 2000)
-  }, [])
+      setLoading(false);
+    }, 2000);
+  }, []);
 
   function random(number: number) {
-    return Math.floor(Math.random() * number) + 1
+    return Math.floor(Math.random() * number) + 1;
   }
 
   const arrayAux = [...Array(40)].map(() => ({
     transform: `translate3d(${random(100)}vw, ${random(100)}vh, ${random(
-      10,
+      10
     )}px)`,
     transformAnimation: `translate3d(${random(100)}vw, ${random(
-      100,
+      100
     )}vh, ${random(100)}px)`,
     figure: random(3),
     width: random(4),
-  }))
+  }));
 
   return (
     <div className="">
@@ -61,12 +61,28 @@ const Home = () => {
                     <span>Te amo</span>
                     <Typewriter
                       options={{
-                        strings: ['mi amor', 'mi vida', 'corazón', 'bebe'],
+                        strings: ["mi amor", "mi vida", "corazón", "bebe"],
                         autoStart: true,
                         loop: true,
                       }}
                     />
                   </p>
+                  <div className="h-14"></div>
+                  <div className="flower">
+                    <div className="mid"></div>
+                    <div className="Petal1 p1"></div>
+                    <div className="Petal1 p2"></div>
+                    <div className="Petal1 p3"></div>
+                    <div className="Petal1 p4"></div>
+                    <div className="Petal2 p1"></div>
+                    <div className="Petal2 p2"></div>
+                    <div className="Petal2 p3"></div>
+                    <div className="Petal2 p4"></div>
+                    <div className="Petal3 p1"></div>
+                    <div className="Petal3 p2"></div>
+                    <div className="Petal3 p3"></div>
+                    <div className="Petal3 p4"></div>
+                  </div>
                   <div className="flex gap-2 mt-4">
                     {/* <button
                       onClick={() => router.push('/memories')}
@@ -74,12 +90,12 @@ const Home = () => {
                     >
                       Recuerdos
                     </button> */}
-                    <button
+                    {/* <button
                       onClick={() => setView(!view)}
                       className="bg-white py-1 px-3 text-lg rounded-full"
                     >
                       Presioname ❤️
-                    </button>
+                    </button> */}
                   </div>
                 </>
               ) : (
@@ -105,8 +121,8 @@ const Home = () => {
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
 const ContentBackground = (props) => {
   return (
@@ -115,15 +131,15 @@ const ContentBackground = (props) => {
         <div></div>
       </div>
     </BackgroundStyle>
-  )
-}
+  );
+};
 type Background = {
   item?: {
-    transform: string
-    width: number
-    transformAnimation: number
-  }
-}
+    transform: string;
+    width: number;
+    transformAnimation: number;
+  };
+};
 
 const BackgroundStyle = styled.div`
   transform: ${(props: Background) => props.item.transform} scale(0.5);
@@ -132,14 +148,14 @@ const BackgroundStyle = styled.div`
   animation: ${(props: Background) =>
       rotationBuilder(props.item.transformAnimation)}
     50s infinite alternate;
-`
+`;
 function rotationBuilder(transformAnimation: number) {
   const rotation = keyframes`
     100% {
     transform: ${transformAnimation};
   }
-  `
-  return rotation
+  `;
+  return rotation;
 }
 
-export default Home
+export default Home;
